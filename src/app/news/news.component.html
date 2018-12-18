@@ -1,0 +1,18 @@
+<section class="content-header">
+  <h1>
+    Latest stories
+  </h1>
+</section>
+
+
+<section class="content">
+
+  <div class="row">
+    <div *ngFor="let article of articles "class="col-sm-6 col-xs-12">
+
+      <mt-article [article]="article"></mt-article>
+
+    </div>
+  </div>
+
+</section>
