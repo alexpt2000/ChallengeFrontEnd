@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component'
 import { ROUTES } from './app.routes';
 import { NewsComponent } from './news/news.component';
 import { ArticleComponent } from './news/article/article.component';
+import { NewsService } from './service/news.service';
 
 
 
@@ -27,7 +28,7 @@ import { ArticleComponent } from './news/article/article.component';
     RouterModule.forRoot(ROUTES)
 
   ],
-  providers: [],
+  providers: [NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
