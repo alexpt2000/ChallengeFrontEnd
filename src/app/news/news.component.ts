@@ -9,34 +9,31 @@ import { NewsService } from 'app/service/news.service';
 })
 export class NewsComponent implements OnInit {
 
-  topNews: any[];
-  articles: Article[];
-
-  // articles: Article[] = [
-  //   {
-  //     id: "bread-bakery",
-  //     name: "Bread & Bakery",
-  //     category: "Bakery",
-  //     deliveryEstimate: "25m",
-  //     rating: 4.9,
-  //     imagePath: "assets/img/restaurants/breadbakery.png"
-  //   },
-  //   {
-  //     id: "burger-house",
-  //     name: "Burger House",
-  //     category: "Hamburgers",
-  //     deliveryEstimate: "100m",
-  //     rating: 3.5,
-  //     imagePath: "assets/img/restaurants/burgerhouse.png"
-  //   }];
+  articles: Story[] = [];
 
   constructor(private topNewsService: NewsService) { }
 
   ngOnInit() {
-    this.topNewsService.getListNewsJSON()
-      .subscribe(news => this.topNews = news);
 
-      this.topNewsService.getAnticleJSON()
-      .subscribe(news => this.articles = news);
+    this.topNewsService.getListNewsJSON().subscribe(
+      storyIdList => {
+        storyIdList.forEach(storyId => {
+          this.topNewsService.getAnticleJSON(storyId).subscribe(
+            storyRecord => {
+              this.articles.push(
+                new Story(storyRecord['title'], storyRecord['by'], storyRecord['url'])
+              )
+            }
+          );
+        });
+      }
+    );
+  }
+}
+export class Story {
+  constructor(
+    public title: string,
+    public by: string,
+    public url: string) {
   }
 }

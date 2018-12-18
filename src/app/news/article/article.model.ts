@@ -9,6 +9,13 @@ export interface Article {
   url: string;
 }
 
+// export class Story {
+//   constructor(
+//     public title: string,
+//     public by: string,
+//     public url: string) {
+//   }
+// }
 
 // export interface Article {
 //   id: string;
