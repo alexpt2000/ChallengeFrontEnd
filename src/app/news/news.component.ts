@@ -9,31 +9,26 @@ import { NewsService } from 'app/service/news.service';
 })
 export class NewsComponent implements OnInit {
 
-  articles: Story[] = [];
+  articles: Article[] = [];
+  hideCircle: boolean;
 
   constructor(private topNewsService: NewsService) { }
 
   ngOnInit() {
-
-    this.topNewsService.getListNewsJSON().subscribe(
+    this.hideCircle = true;
+     this.topNewsService.getListNewsJSON().subscribe(
       storyIdList => {
         storyIdList.forEach(storyId => {
           this.topNewsService.getAnticleJSON(storyId).subscribe(
             storyRecord => {
               this.articles.push(
-                new Story(storyRecord['title'], storyRecord['by'], storyRecord['url'])
+                new Article(storyRecord['id'], storyRecord['by'], storyRecord['descendants'], storyRecord['score'], storyRecord['time'], storyRecord['title'],  storyRecord['type'], storyRecord['url'])
               )
+              this.hideCircle = false;
             }
           );
         });
       }
     );
-  }
-}
-export class Story {
-  constructor(
-    public title: string,
-    public by: string,
-    public url: string) {
   }
 }

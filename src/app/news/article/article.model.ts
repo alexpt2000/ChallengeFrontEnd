@@ -1,28 +1,14 @@
-export interface Article {
-  id: number;
-  by: string;
-  descendants: number;
-  score: number;
-  time: number;
-  title: string;
-  type: string;
-  url: string;
+export class Article {
+  constructor(
+    public id: number,
+    public by: string,
+    public descendants: number,
+    public score: number,
+    public time: number,
+    public title: string,
+    public type: string,
+    public url: string) {
+  }
 }
 
-// export class Story {
-//   constructor(
-//     public title: string,
-//     public by: string,
-//     public url: string) {
-//   }
-// }
-
-// export interface Article {
-//   id: string;
-//   name: string;
-//   category: string;
-//   deliveryEstimate: string;
-//   rating: number;
-//   imagePath: string;
-// }
 

@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ROUTES } from './app.routes';
-import { NewsComponent } from './news/news.component';
 import { ArticleComponent } from './news/article/article.component';
 import { NewsService } from './service/news.service';
+import { HttpModule } from '@angular/http';
+import { NewsComponent } from './news/news.component';
 
 
 @NgModule({
@@ -15,8 +16,8 @@ import { NewsService } from './service/news.service';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    NewsComponent,
-    ArticleComponent
+    ArticleComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
