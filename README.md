@@ -8,7 +8,7 @@
 
 ## Technology
 
-> For this project I will use various technologies, techniques and tools, such as:
+> For this project I used various technologies, techniques and tools, such as:
 
 ### IDE - Development environment
 - Visual Studio Code
